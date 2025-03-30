@@ -46,10 +46,7 @@ if(isAuthenticated) {
 <div className="hidden w-full md:w-1/2 bg-black text-white md:flex flex-col items-center justify-center p-8 rounded-tr-[80px] rounded-br-[80px]">
 <div className="text-center h-[450px]">
   <div className="flex justify-center mb-12">
-    <img
-    src={logo_with_title}
-    alt="logo"
-    className="mb-12 h-full w-auto max-h-[350px] "/>
+   <img src={logo_with_title} alt="logo" className="mb-12 h-44 w-auto "/>
   </div>
   <h3 className="text-gray-300 mb-12 max-w-[320px] mx-auto text-3xl font-medium leading-10">Your Premier Digital Library for borrowing and reading books</h3>
 </div>
