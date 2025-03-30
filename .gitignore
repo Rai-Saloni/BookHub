@@ -1,5 +1,5 @@
 server/node_modules
-.env
+config/
 # Node.js dependencies
 node_modules/
 package-lock.json
