@@ -1,16 +1,25 @@
 {
-  "name": "server",
+  "name": "bookhub",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+   "start": "node server.js",
+   "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rai-Saloni/BookHub.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Rai-Saloni/BookHub/issues"
+  },
+  "homepage": "https://github.com/Rai-Saloni/BookHub#readme",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "cloudinary": "^2.6.0",
@@ -19,8 +28,7 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "express-fileupload": "^1.5.1",
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.13.0",
+    "mongoose": "^8.13.1",
     "node-cron": "^3.0.3",
     "nodemailer": "^6.10.0"
   }

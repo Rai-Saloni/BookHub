@@ -1,1 +1,50 @@
 server/node_modules
+.env
+# Node.js dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+debug.log
+
+# Process manager (PM2) logs
+pm2.log
+pm2.pid
+
+# Database dumps
+dump.rdb
+*.sqlite
+*.sqlite3
+*.bak
+
+# Build artifacts
+dist/
+build/
+
+# IDE/editor files
+.vscode/
+.idea/
+*.iml
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Coverage reports (if using Jest for testing)
+coverage/
+
+# Swagger (if using API documentation)
+swagger-output.json
