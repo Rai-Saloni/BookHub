@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import axois from "axios";
+import axios from "axios";
 
 const authSlice = createSlice({
     name : "auth",
@@ -24,7 +24,6 @@ const authSlice = createSlice({
             state.loading = false;
             state.error = action.payload;
         },
-    },
     otpVerificationRequest(state){
         state.loading = true;
         state.error = null;
@@ -134,7 +133,8 @@ const authSlice = createSlice({
         state.message = null;
         state.user = state.user;
         state.isAuthenticated = state.isAuthenticated;
-    }
+    },
+},
 });
 
 export const resetAuthSlice = ()=>{
@@ -153,7 +153,7 @@ export const register = (data)=>async(dispatch)=>{
         dispatch(authSlice.actions.registerFailed(error.response.data.message));
     });
 };
-export const login = (email,otp)=>async(dispatch)=>{
+export const login = (data)=>async(dispatch)=>{
     dispatch(authSlice.actions.otpVerificationRequest());
     await axios.post("",data,{
         withCredentials:true,

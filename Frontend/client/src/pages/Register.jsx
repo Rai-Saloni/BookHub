@@ -43,7 +43,7 @@ const Register = () => {
       toast.error(error);
       dispatch(resetAuthSlice());
     }
-  },[message,error,navigateTo,dispatch]);
+  },[loading,error,isAuthenticated,dispatch]);
 
   if(isAuthenticated) {
     return <Navigate to={"/"} />;
