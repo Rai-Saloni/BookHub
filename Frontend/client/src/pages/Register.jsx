@@ -6,6 +6,8 @@ import { useNavigate} from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { resetAuthSlice } from "../store/slices/authSlice";
+// import { register, resetAuthSlice } from "../store/slices/authSlice"; 
 
 
 
@@ -33,6 +35,8 @@ const Register = () => {
 
   useEffect(()=>{
     if(message){
+      toast.success(message);
+      dispatch(resetAuthSlice());
       navigateTo(`/otp-verification/${email}`);
     }
     if(error){

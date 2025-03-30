@@ -11,7 +11,7 @@ import { RiAdminFill } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import {logout, resetAuthSlice} from "../store/slices/authSlice"
 import {toast} from "react-toastify"
-import { toggleAddNewAdminPopup } from "../store/slices/popUpSlice";
+import { toggleAddNewAdminPopup, toggleSettingPopup } from "../store/slices/popUpSlice";
 const SideBar = ({ isSideBarOpen, setIsSideBarOpen, setSelectedComponent }) => {
    const dispatch = useDispatch();
    const { addNewAdminPopup} = useSelector(state=>state.popup)
@@ -72,11 +72,13 @@ const SideBar = ({ isSideBarOpen, setIsSideBarOpen, setSelectedComponent }) => {
            </>
            )}
                     <button className="w-full py-2 font-medium bg-transparent rounded-md hover:cursor-pointer flex items-center space-x-2" 
-                    //</nav>onClick={()=>setSelectedComponent("Books")}
+                    onClick={()=>dispatch(toggleSettingPopup())
+                    }
                     >
                  <img src={settingIcon} alt="icon"/>
                  <span>Update Credentials</span>
                </button>
+              
       </nav>
       <div className="px-6 py-4">
       <button className="py-2 font-medium text-center bg-transparent rounded-md hover:cursor-pointer flex  items-center justify-center space-x-5 mx-auto w-fit" onClick={handleLogout}>
