@@ -48,7 +48,7 @@ const SideBar = ({ isSideBarOpen, setIsSideBarOpen, setSelectedComponent }) => {
           <img src={bookIcon} alt="icon"/>
           <span>Books</span>
         </button>
-        {isAuthenticated && user?.role==="Admin"  && (
+        {/* {isAuthenticated && user?.role==="Admin"  && ( */}
             <>
                  <button className="w-full py-2 font-medium bg-transparent rounded-md hover:cursor-pointer flex items-center space-x-2" onClick={()=>setSelectedComponent("Catalog")}>
           <img src={catalogIcon} alt="icon"/>
@@ -62,7 +62,7 @@ const SideBar = ({ isSideBarOpen, setIsSideBarOpen, setSelectedComponent }) => {
           <RiAdminFill className="w-6 h-6"/> <span>Add New Admin</span>
         </button>
             </>
-          )}
+          {/* )} */}
           {isAuthenticated && user?.role==="User"&&(
            <>
                      <button className="w-full py-2 font-medium bg-transparent rounded-md hover:cursor-pointer flex items-center space-x-2" onClick={()=>setSelectedComponent("My Borrowed Books")}>
