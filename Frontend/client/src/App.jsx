@@ -23,6 +23,7 @@ const App = () => {
        }
        if(isAuthenticated && user?.role==="Admin"){
         dispatch(fetchAllUsers());
+        dispatch(fetchUserBorrowedBooks());
        }
   },[isAuthenticated]);
   return <Router>

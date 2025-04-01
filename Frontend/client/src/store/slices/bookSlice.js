@@ -1,5 +1,7 @@
 import axios from "axios";
-import {createSlice} from "@reduxjs/toolkit"  //download it
+import {createSlice} from "@reduxjs/toolkit";
+import { toggleAddBookPopup } from "./popUpSlice";
+import {toast} from "react-toastify"
 
 const bookSlice = createSlice({
     name:"book",
@@ -68,9 +70,13 @@ export const addBook = (data)=>async(dispatch)=> {
     })
     .then((res)=>{
         bookSlice.actions.addBookSuccess(res.data.message);
+        toast.success(res.data.message);
+        dispatch(toggleAddBookPopup());
+        dispatch(fetchAllBooks());
     })
     .catch((err)=>{
         dispatch(bookSlice.actions.addBookFailed(err.response.data.message));
+         dispatch(toggleAddBookPopup());
     });
 };
 export const resetBookSlice = ()=>(dispatch)=>{
