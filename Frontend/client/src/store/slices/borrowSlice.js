@@ -11,16 +11,16 @@ const borrowSlice = createSlice({
     message: null,
 },
 reducers: {
-    fetchUserBorrwedBooksRequest(state) {
+    fetchUserBorrowedBooksRequest(state) {
         state.loading = true;
         state.error = null;
         state.message = null;
     },
-    fetchUserBorrwedBooksSuccess(state,action) {
+    fetchUserBorrowedBooksSuccess(state,action) {
         state.loading=false;
        state.userBorrowedBooks=action.payload;
     },
-    fetchUserBorrwedBooksFailed(state,action) {
+    fetchUserBorrowedBooksFailed(state,action) {
         state.loading=false;
         state.error=action.payload;
         state.message=null;
@@ -42,16 +42,16 @@ reducers: {
         state.message=null;
     },   
 
-    fetchAllBorrwedBooksRequest(state) {
+    fetchAllBorrowedBooksRequest(state) {
         state.loading = true;
         state.error = null;
         state.message = null;
     },
-    fetchAllBorrwedBooksSuccess(state,action) {
+    fetchAllBorrowedBooksSuccess(state,action) {
         state.loading=false;
        state.userBorrowedBooks=action.payload;
     },
-    fetchAllBorrwedBooksFailed(state,action) {
+    fetchAllBorrowedBooksFailed(state,action) {
         state.loading=false;
         state.error=action.payload;
         state.message=null;
@@ -75,7 +75,7 @@ reducers: {
         state.message=null;
     }, 
     
-    resetBookSlice(state){
+    resetBorrowSlice(state){
         state.loading=false;
         state.error=null;
         state.message=null;
@@ -85,19 +85,19 @@ reducers: {
 });
 
 
-export const fetchUserBorrwedBooks = ()=>async(dispatch)=>{
-    dispatch(borrowSlice.actions.fetchUserBorrwedBooksRequest());
+export const fetchUserBorrowedBooks = ()=>async(dispatch)=>{
+    dispatch(borrowSlice.actions.fetchUserBorrowedBooksRequest());
     await axios.get("borrow routes get link//http://localhost:400/api/v1/borrow/my-borrowed-books",{withCredentials:true}).then(res=>{
-        dispatch(borrowSlice.actions.fetchUserBorrwedBooksSuccess(res.data.borrowedBooks));
+        dispatch(borrowSlice.actions.fetchUserBorrowedBooksSuccess(res.data.borrowedBooks));
     }).catch(err=>{
         dispatch(borrowSlice.actions.fetchUserBorrowedBooksFailed(err.response.data.message));
     });
 };
 
-export const fetchAllBorrwedBooks = ()=>async(dispatch)=>{
-    dispatch(borrowSlice.actions.fetchAllBorrwedBooksRequest());
+export const fetchAllBorrowedBooks = ()=>async(dispatch)=>{
+    dispatch(borrowSlice.actions.fetchAllBorrowedBooksRequest());
     await axios.get("borrow routes get link//http://localhost:400/api/v1/borrow/borrowed-books-by-users",{withCredentials:true}).then(res=>{
-        dispatch(borrowSlice.actions.fetchAllBorrwedBooksSuccess(res.data.borrowedBooks));
+        dispatch(borrowSlice.actions.fetchAllBorrowedBooksSuccess(res.data.borrowedBooks));
     }).catch(err=>{
         dispatch(borrowSlice.actions.fetchAllBorrowedBooksFailed(err.response.data.message));
     });
@@ -143,8 +143,7 @@ export const returnBook = (email,is)=>async(dispatch)=>{
 };
 
 
-export const resetBookslice =()=>(dispatch)=>{
-    dispatch(borrowSlice.actions.resetBookSlice());
+export const resetBorrowSlice =()=>(dispatch)=>{
+    dispatch(borrowSlice.actions.resetBorrowSlice());
 };
-
 export default borrowSlice.reducer;

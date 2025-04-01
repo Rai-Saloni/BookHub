@@ -20,8 +20,8 @@ const Header = () => {
       const ampm=now.getHours() >=12 ? "PM": "AM";
       setCurrentTime(`${hours}:${minutes}:${ampm}`);
 
-      const options = { month: "short", dat:"numeric", year:"numeric"};
-      setCurrentDate(now.toLocaleDateString("en-US",option));
+      const options = { month: "short", day:"numeric", year:"numeric"};
+      setCurrentDate(now.toLocaleDateString("en-US",options));
 
     };
 

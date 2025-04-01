@@ -3,7 +3,7 @@ import {createSlice} from "@reduxjs/toolkit"  //download it
 
 const bookSlice = createSlice({
     name:"book",
-    intialState:{
+    initialState:{
         loading: false,
         error: null,
         message: null,
@@ -48,12 +48,12 @@ const bookSlice = createSlice({
 
 
 export const fetchAllBooks = () =>async(dispatch)=>{
-    dispatch(bookSlice.action.fetchBooksRequest());
+    dispatch(bookSlice.actions.fetchBooksRequest());
     await axios
     .get("http://localhost:4000/api/v1/book/all",{ withCredentials:true}).then(res=>{
         dispatch(bookSlice.actions.fetchBooksSuccess(res.data.books))
     }).catch(err=>{
-        dispatch(bookSlice.action.fetchBooksFailed(err.response.data.message));
+        dispatch(bookSlice.actions.fetchBooksFailed(err.response?.data?.message));
     });
 };
 
@@ -72,6 +72,9 @@ export const addBook = (data)=>async(dispatch)=> {
     .catch((err)=>{
         dispatch(bookSlice.actions.addBookFailed(err.response.data.message));
     });
+};
+export const resetBookSlice = ()=>(dispatch)=>{
+    dispatch(bookSlice.actions.resetBookSlice());
 };
 
 export default bookSlice.reducer;
