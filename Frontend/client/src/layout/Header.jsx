@@ -1,8 +1,8 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import settingIcon from "../assets/setting.png";
 import userIcon from "../assets/user.png";
-import { useSelector } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
+import { toggleSettingPopup } from "../store/slices/popUpSlice";
 const Header = () => {
 
   const dispatch= useDispatch();
@@ -54,7 +54,7 @@ const Header = () => {
     src={settingIcon}
     alt="settingIcon"
     className="w-8 h-8"
-    onClick={() => toggleSettingPopup()}/>
+    onClick={() => dispatch(toggleSettingPopup())}/>
   </div>
   </header>
   </>
