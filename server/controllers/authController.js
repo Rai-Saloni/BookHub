@@ -128,7 +128,7 @@ export const logout=catchAsyncErrors(async(req,res,next)=>{
         httpOnly:true,
     }).json({
         success:true,
-        message:"Loggeg out successfully",
+        message:"Logged out successfully",
     });
 });
 
