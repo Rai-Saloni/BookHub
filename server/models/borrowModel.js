@@ -43,7 +43,7 @@ const borrowSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-    nodified: {
+    notified: {
         type: Boolean,
         default: false,
     },
