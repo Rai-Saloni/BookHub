@@ -7,6 +7,11 @@ import { calculateFine } from "../utils/fineCalculator.js";
 
 export const borrowedBooks = catchAsyncErrors(
     async(req,res,next)=>{
+        const {borrowedBooks} = req.user;
+        res.status(200).json({
+            success: true,
+            borrowedBooks,
+        });
        
 }
 );
@@ -63,7 +68,13 @@ export const recordBorrowedBook = catchAsyncErrors(
 );
 
 export const getBorrowedBooksForAdmin = catchAsyncErrors(
-    async( req, res, next)=>{}
+    async( req, res, next)=>{
+        const borrowedBooks = await Borrow.find();
+    res.status(200).json({
+        success: true,
+        borrowedBooks,
+    });
+   }
 );
 
 export const returnBorrowBook = catchAsyncErrors(
