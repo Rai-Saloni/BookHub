@@ -7,7 +7,7 @@ import { sendVerificationCode } from "../utils/sendVerificationCode.js";
 import { sendToken } from "../utils/sendToken.js";
 import { sendEmail } from "../utils/sendEmail.js";
 import { generateForgotPasswordEmailTemplate } from "../utils/emailTemplates.js";
-import { urlencoded } from "express";
+
 
 export const register = catchAsyncErrors(async(req,res,next)=>{
     try {
