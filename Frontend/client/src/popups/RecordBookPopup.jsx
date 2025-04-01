@@ -32,7 +32,7 @@ const RecordBookPopup = ({bookId}) => {
       </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default RecordBookPopup
