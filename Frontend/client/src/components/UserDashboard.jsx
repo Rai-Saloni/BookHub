@@ -5,7 +5,7 @@ import browseIcon from "../assets/pointing.png";
 import bookIcon from "../assets/book-square.png";
 import { Pie } from "react-chartjs-2";
 import {useDispatch,useSelector} from "react-redux";
-import Headed from "../layout/Header";
+import Header from "../layout/Header";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -51,10 +51,10 @@ setTotalReturnedBooks(numberofTotalReturnedBooks.length);
       {
         data : [totalBorrowedBooks,totalReturnedBooks],
         backgroundColor : ["#3D3E3E","#151619"],
-        hoverOffset : 4
-      }
-    ]
-  }
+        hoverOffset : 4,
+      },
+    ],
+  };
   return <>
    <main className="relative flex-1 p-6 pt-28">
   <Header/> 
@@ -84,7 +84,9 @@ setTotalReturnedBooks(numberofTotalReturnedBooks.length);
        </div>
     </div>
     <div className="bg-white p-7 text-lg sm:text-xl xl:text-3xl 2xl:text-4xl min-h-52 font-semibold relative flex-[3] flex justify-center items-center rounded-2xl">
-       <h4 className="overflow-y-hidden"></h4>
+       <h4 className="overflow-y-hidden">
+        "Embarking on the journey of reading fosters personal growth, nurturing a path towards excellence and the refinedment of character."
+       </h4>
        <p className="text-gray-700 text-sm sm:text-lg absolute right-[35px] sm:right-[78px] bottom-[10px]">~BookWorm Team</p>
     </div>
 
