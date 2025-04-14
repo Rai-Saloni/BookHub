@@ -51,7 +51,7 @@ reducers: {
     },
     fetchAllBorrowedBooksSuccess(state,action) {
         state.loading=false;
-       state.userBorrowedBooks=action.payload;
+       state.allBorrowedBooks=action.payload;
     },
     fetchAllBorrowedBooksFailed(state,action) {
         state.loading=false;
@@ -91,7 +91,7 @@ export const fetchUserBorrowedBooks = ()=>async(dispatch)=>{
     dispatch(borrowSlice.actions.fetchUserBorrowedBooksRequest());
     await axios.get("http://localhost:4000/api/v1/borrow/my-borrowed-books",{withCredentials:true}).then(res=>{
         dispatch(borrowSlice.actions.fetchUserBorrowedBooksSuccess(res.data.borrowedBooks));
-    }).catch(err=>{
+    }).catch((err)=>{
         dispatch(borrowSlice.actions.fetchUserBorrowedBooksFailed(err.response.data.message));
     });
 };
@@ -100,7 +100,7 @@ export const fetchAllBorrowedBooks = ()=>async(dispatch)=>{
     dispatch(borrowSlice.actions.fetchAllBorrowedBooksRequest());
     await axios.get("http://localhost:4000/api/v1/borrow/borrowed-books-by-users",{withCredentials:true}).then(res=>{
         dispatch(borrowSlice.actions.fetchAllBorrowedBooksSuccess(res.data.borrowedBooks));
-    }).catch(err=>{
+    }).catch((err)=>{
         dispatch(borrowSlice.actions.fetchAllBorrowedBooksFailed(err.response.data.message));
     });
 };
@@ -120,7 +120,7 @@ export const recordBorrowBook =(email,id)=>async(dispatch)=>{
     ).then(res=>{
         dispatch(borrowSlice.actions.recordBookSuccess(res.data.message));
         dispatch(toggleRecordBookPopup());
-    }).catch((res)=>{
+    }).catch((err)=>{
         dispatch(borrowSlice.actions.recordBookFailed(err.response.data.message));
     });
 };
