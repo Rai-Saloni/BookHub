@@ -22,6 +22,7 @@ const AddBookPopup = () => {
     formData.append("quantity",quantity);
     formData.append("description",description);
     dispatch(addBook(formData));
+    dispatch(fetchAllBooks());
    
   };
 

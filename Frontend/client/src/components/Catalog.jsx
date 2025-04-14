@@ -11,7 +11,7 @@ import Header from "../layout/Header";
 
 
 const Catalog = () => {
-
+  const dispatch=useDispatch(); 
   const { returnBookPopup }= useSelector((state)=>state.popup);
   const { loading,error,allBorrowedBooks,message }= useSelector(
     (state) => state.borrow
@@ -35,17 +35,17 @@ const Catalog = () => {
   };
 
   const currentDate=new Date();
-  const borrowedBooks = allBorrowedBooks?.filter(book=>{
+  const borrowedBooks = allBorrowedBooks?.filter((book)=>{
     const dueDate=new Date(book.dueDate);
     return dueDate>currentDate;
   });
 
-  const overdueBooks = allBorrowedBooks?.filter(book=>{
+  const overdueBooks = allBorrowedBooks?.filter((book)=>{
     const dueDate=new Date(book.dueDate);
     return dueDate<=currentDate;
   });
 
-  const booksToDispply = filter === "borrowed" ? borrowedBooks : overdueBooks;
+  const booksToDisplay = filter === "borrowed" ? borrowedBooks : overdueBooks;
 
   const [email,setEmail] = useState("");
   const [borrowedBookId,setBorrowedBookId]= useState("");
@@ -114,7 +114,7 @@ const Catalog = () => {
                       <td className="px-4 py-2">{formatDateAndTime(book.createdAt)}</td>
                       <td className="px-4 py-2">
                         {
-                          book.returDate?(
+                          book.returnDate?(
                             <FaSquareCheck className="w-6 h-6"/>
                           ):(
                             <PiKeyReturnBold onClick={()=> openReturnBookPopup(book.book,book?.user.email)}

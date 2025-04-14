@@ -39,7 +39,7 @@ const bookSlice = createSlice({
             state.loading=false;
             state.error=action.payload;
         },
-        addBookSlice(state)
+        resetBookSlice(state)
         {
             state.error=null;
             state.message=null;
@@ -52,10 +52,11 @@ const bookSlice = createSlice({
 export const fetchAllBooks = () =>async(dispatch)=>{
     dispatch(bookSlice.actions.fetchBooksRequest());
     await axios
-    .get("http://localhost:4000/api/v1/book/all",{ withCredentials:true}).then(res=>{
+    .get("http://localhost:4000/api/v1/book/all",{ withCredentials:true})
+    .then(res=>{
         dispatch(bookSlice.actions.fetchBooksSuccess(res.data.books))
     }).catch(err=>{
-        dispatch(bookSlice.actions.fetchBooksFailed(err.response?.data?.message));
+        dispatch(bookSlice.actions.fetchBooksFailed(err.response.data.message));
     });
 };
 

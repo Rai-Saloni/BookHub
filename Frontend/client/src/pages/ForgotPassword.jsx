@@ -48,7 +48,8 @@ if(isAuthenticated) {
   <div className="flex justify-center mb-12">
    <img src={logo_with_title} alt="logo" className="mb-12 h-44 w-auto "/>
   </div>
-  <h3 className="text-gray-300 mb-12 max-w-[320px] mx-auto text-3xl font-medium leading-10">Your Premier Digital Library for borrowing and reading books</h3>
+  <h3 className="text-gray-300 mb-12 max-w-[320px] mx-auto text-3xl font-medium leading-10">
+    Your Premier Digital Library for borrowing and reading books</h3>
 </div>
 </div>
 {/* Right Section */}

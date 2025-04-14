@@ -39,8 +39,10 @@ const Header = () => {
   <div className="flex items-center gap-2">
       <img src={userIcon} alt="userIcon" className="w-8 h-8"/>
       <div className="flex flex-col">
-        <span className="text-sm font-medium sm:text-lg lg:text-xl sm:font-semibold">{user && user.name}</span>
-        <span className="text-sm font-medium sm:text-lg sm:font-medium">{user && user.role}</span>
+        <span className="text-sm font-medium sm:text-lg lg:text-xl sm:font-semibold">
+          {user && user.name}</span>
+        <span className="text-sm font-medium sm:text-lg sm:font-medium">
+          {user && user.role}</span>
       </div>
   </div>
   {/*Right Side*/}
@@ -49,7 +51,7 @@ const Header = () => {
       <span>{currentTime}</span>
       <span>{currentDate}</span>
     </div>
-    <span className="bg-black h-14 w-[2px]"/> //autoclosing tag
+    <span className="bg-black h-14 w-[2px]"/> 
     <img
     src={settingIcon}
     alt="settingIcon"

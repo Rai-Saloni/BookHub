@@ -137,12 +137,12 @@ const authSlice = createSlice({
 },
 });
 
-export const resetAuthSlice = ()=>{
+export const resetAuthSlice = ()=>(dispatch)=>{
     dispatch(authSlice.actions.resetAuthSlice())
 }
 export const register = (data)=>async(dispatch)=>{
     dispatch(authSlice.actions.registerRequest());
-    await axios.post("",data,{
+    await axios.post("http://localhost:4000/api/v1/auth/register",data,{
         withCredentials:true,
         headers:{
             "Content-Type":"application/json"
@@ -154,22 +154,8 @@ export const register = (data)=>async(dispatch)=>{
     });
 };
 export const login = (data)=>async(dispatch)=>{
-    dispatch(authSlice.actions.otpVerificationRequest());
-    await axios.post("",data,{
-        withCredentials:true,
-        headers:{
-            "Content-Type":"application/json"
-        },
-    }).then(res=>{
-        dispatch(authSlice.actions.otpVerificationSuccess(res.data))
-    }).catch(error=>{
-        dispatch(authSlice.actions.otpVerificationFailed(error.response.data.message));
-    });
-};
-
-export const otpVerification = (data)=>async(dispatch)=>{
     dispatch(authSlice.actions.loginRequest());
-    await axios.post("",data,{
+    await axios.post("http://localhost:4000/api/v1/auth/login",data,{
         withCredentials:true,
         headers:{
             "Content-Type":"application/json"
@@ -180,9 +166,25 @@ export const otpVerification = (data)=>async(dispatch)=>{
         dispatch(authSlice.actions.loginFailed(error.response.data.message));
     });
 };
+
+export const otpVerification = (email,otp)=>async(dispatch)=>{
+    dispatch(authSlice.actions.otpVerificationRequest());
+    //console.log("Verifying OTP with:", { email, otp });
+
+    await axios.post("http://localhost:4000/api/v1/auth/verify-otp",{ email,otp },{
+        withCredentials:true,
+        headers:{
+            "Content-Type":"application/json"
+        },
+    }).then(res=>{
+        dispatch(authSlice.actions.otpVerificationSuccess(res.data))
+    }).catch(error=>{
+        dispatch(authSlice.actions.otpVerificationFailed(error.response.data.message));
+    });
+};
 export const logout = ()=>async(dispatch)=>{
     dispatch(authSlice.actions.logoutRequest());
-    await axios.get("",{
+    await axios.get("http://localhost:4000/api/v1/auth/logout",{
         withCredentials:true,
     }).then(res=>{
         dispatch(authSlice.actions.logoutSuccess(res.data.message));
@@ -194,7 +196,7 @@ export const logout = ()=>async(dispatch)=>{
 
 export const getUser = ()=>async(dispatch)=>{
     dispatch(authSlice.actions.getUserRequest());
-    await axios.get("",{
+    await axios.get("http://localhost:4000/api/v1/auth/me",{
         withCredentials:true,
     }).then(res=>{
         dispatch(authSlice.actions.getUserSuccess(res.data));
@@ -205,7 +207,7 @@ export const getUser = ()=>async(dispatch)=>{
 
 export const forgotPassword = (email)=>async(dispatch)=>{
     dispatch(authSlice.actions.forgotPasswordRequest());
-    await axios.post("",{email},{
+    await axios.post("http://localhost:4000/api/v1/auth/password/forgot",{email},{
         withCredentials:true,
         headers:{
             "Content-Type":"application/json"
@@ -219,7 +221,7 @@ export const forgotPassword = (email)=>async(dispatch)=>{
 
 export const resetPassword = (data,token)=>async(dispatch)=>{
     dispatch(authSlice.actions.resetPasswordRequest());
-    await axios.put("",data,{
+    await axios.put(`http://localhost:4000/api/v1/auth/password/reset/${token}`,data,{
         withCredentials:true,
         headers:{
             "Content-Type":"application/json"
@@ -233,7 +235,7 @@ export const resetPassword = (data,token)=>async(dispatch)=>{
 
 export const updatePassword = (data)=>async(dispatch)=>{
     dispatch(authSlice.actions.updatePasswordRequest());
-    await axios.put("",data,{
+    await axios.put("http://localhost:4000/api/v1/auth/password/update",data,{
         withCredentials:true,
         headers:{
             "Content-Type":"application/json"

@@ -59,7 +59,8 @@ const Login = () => {
         <div className="block md:hidden font-semibold mt-5">
           <p>New to our platform? <Link to={"/register"} className="text-sm text-gray-500 hover:underline">Sign Up</Link></p>
         </div>
-        <button type="submit" className="border-2 mt-5 border-black w-full font-semibold bg-black text-white py-2 rounded-lg hover:bg-white hover:text-black transition">SIGN IN</button>
+        <button type="submit" className="border-2 mt-5 border-black w-full font-semibold bg-black text-white py-2 rounded-lg hover:bg-white hover:text-black transition">
+          SIGN IN</button>
       </form>
     </div>
     </div>
@@ -70,7 +71,7 @@ const Login = () => {
           <img src={logo_with_title} alt="logo" className="mb-12 h-44 w-auto"/>
         </div>
         <p className="text-gray-300 mb-12">New to our platform? Sign up now.</p>
-        <Link to={"/register"}         className="border-2 mt-5 border-white px-8 w-full font-semibold bg-black text-white py-2 rounded-lg hover:bg-white hover:text-black transition">SIGN UP</Link>
+        <Link to={"/register"}  className="border-2 mt-5 border-white px-8 w-full font-semibold bg-black text-white py-2 rounded-lg hover:bg-white hover:text-black transition">SIGN UP</Link>
       </div>
     </div>
    </div>

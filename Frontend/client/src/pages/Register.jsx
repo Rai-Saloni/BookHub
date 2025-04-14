@@ -6,8 +6,7 @@ import { useNavigate} from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { resetAuthSlice } from "../store/slices/authSlice";
-// import { register, resetAuthSlice } from "../store/slices/authSlice"; 
+import { register, resetAuthSlice } from "../store/slices/authSlice";
 
 
 
@@ -20,7 +19,8 @@ const Register = () => {
 
   const dispatch = useDispatch();
 
-  const { loading , error , message , user , isAuthenticated }= useSelector((state)=>state.auth);
+  const { loading , error , message , user , isAuthenticated }= 
+  useSelector((state)=>state.auth);
 
   const navigateTo = useNavigate();
 
@@ -60,7 +60,8 @@ const Register = () => {
         <img src={logo_with_title} alt="logo"  className="mb-12 h-44 w-auto"/>
       </div>
       <p className="text-gray-300 mb-12">Already have Account? Sign in now.</p>
-      <Link to={"/login"} className="border-2 rounded-lg font-semibold border-white py-2 px-8 hover:bg-white hover:text-black transition">SIGN IN</Link>
+      <Link to={"/login"} className="border-2 rounded-lg font-semibold border-white py-2 px-8 hover:bg-white hover:text-black transition">
+      SIGN IN</Link>
     </div>
   </div>
   {/* { Right Side } */}
@@ -108,7 +109,8 @@ const Register = () => {
           <Link to="/login" className="text-sm text-gray-500 hover:underline">Sign In</Link>
         </p>
         </div>
-        <button type="submit" className="border-2 mt-5 border-black w-full font-semibold bg-black text-white py-2 rounded-lg hover:bg-white hover:text-black transition">Sign Up</button>
+        <button type="submit" className="border-2 mt-5 border-black w-full font-semibold bg-black text-white py-2 rounded-lg hover:bg-white hover:text-black transition">
+          Sign Up</button>
     </form>
   </div>
   </div>

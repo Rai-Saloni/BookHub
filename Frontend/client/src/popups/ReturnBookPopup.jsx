@@ -1,15 +1,15 @@
 import React,{useState} from 'react'
 import { useDispatch } from 'react-redux';
 import { recordBorrowBook } from '../store/slices/borrowSlice';
-import { toggleReadBookPopup } from '../store/slices/popUpSlice';
+import { toggleReadBookPopup, toggleReturnBookPopup } from '../store/slices/popUpSlice';
 
-const ReturnBookPopup = ({bookId}) => {
+const ReturnBookPopup = ({bookId,email}) => {
 
   const dispatch=useDispatch();
-  const [email,setEmail] = useState("");
-  const handleRecordBook = (e) => {
+  const handleReturnBook = (e) => {
     e.preventDefault();
     dispatch(recordBorrowBook(email,bookId));
+    dispatch(toggleReturnBookPopup());
   };
 
   return (

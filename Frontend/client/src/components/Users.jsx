@@ -8,12 +8,13 @@ const Users = () => {
     const date = new Date(timeStamp);
     const formattedDate = `${String(date.getDate()).padStart(2,"0")}-${String(date.getMonth()+1
     ).padStart(2,"0")}-${String(date.getFullYear())}`;
-    const formattedTime = `${String(date.getHours()).padStart(2,"0")}:${String(date.getMinutes()).padStart(2,"0")}:${String(date.getSeconds()).padStart(2,"0")}`;
+    const formattedTime = `${String(date.getHours()).padStart(2,"0")}
+    :${String(date.getMinutes()).padStart(2,"0")}
+    :${String(date.getSeconds()).padStart(2,"0")}`;
     const result = `${formattedDate} ${formattedTime}`;
     return result;
   };
-  const result = formatDate("2025-02-11T12:49:11.961+00:00");
-  console.log(result);
+
   return <>
    <main className="relative flex-1 p-6 pt-28">
    <Header/>
@@ -23,7 +24,7 @@ const Users = () => {
  </header>
  {/* table */}
  {
-  users && users.filter(u=>u.role==="User").length>0 ?(
+  users && users.filter((u)=>u.role==="User").length>0 ?(
     <div className="mt-6 overflow-auto bg-white rounded-md shadow-lg">
       <table className="min-w-full border-collapse">
         <thead>

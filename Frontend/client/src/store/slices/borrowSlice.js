@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 import axios from "axios"
-import { toggleAddBookPopup } from "./popUpSlice";
+import { toggleAddBookPopup, toggleRecordBookPopup } from "./popUpSlice";
 
 
 const borrowSlice = createSlice({
@@ -89,7 +89,7 @@ reducers: {
 
 export const fetchUserBorrowedBooks = ()=>async(dispatch)=>{
     dispatch(borrowSlice.actions.fetchUserBorrowedBooksRequest());
-    await axios.get("borrow routes get link//http://localhost:400/api/v1/borrow/my-borrowed-books",{withCredentials:true}).then(res=>{
+    await axios.get("http://localhost:4000/api/v1/borrow/my-borrowed-books",{withCredentials:true}).then(res=>{
         dispatch(borrowSlice.actions.fetchUserBorrowedBooksSuccess(res.data.borrowedBooks));
     }).catch(err=>{
         dispatch(borrowSlice.actions.fetchUserBorrowedBooksFailed(err.response.data.message));
@@ -98,7 +98,7 @@ export const fetchUserBorrowedBooks = ()=>async(dispatch)=>{
 
 export const fetchAllBorrowedBooks = ()=>async(dispatch)=>{
     dispatch(borrowSlice.actions.fetchAllBorrowedBooksRequest());
-    await axios.get("borrow routes get link//http://localhost:400/api/v1/borrow/borrowed-books-by-users",{withCredentials:true}).then(res=>{
+    await axios.get("http://localhost:4000/api/v1/borrow/borrowed-books-by-users",{withCredentials:true}).then(res=>{
         dispatch(borrowSlice.actions.fetchAllBorrowedBooksSuccess(res.data.borrowedBooks));
     }).catch(err=>{
         dispatch(borrowSlice.actions.fetchAllBorrowedBooksFailed(err.response.data.message));
@@ -119,14 +119,14 @@ export const recordBorrowBook =(email,id)=>async(dispatch)=>{
         }
     ).then(res=>{
         dispatch(borrowSlice.actions.recordBookSuccess(res.data.message));
-        dispatch(toggleAddBookPopup());
+        dispatch(toggleRecordBookPopup());
     }).catch((res)=>{
         dispatch(borrowSlice.actions.recordBookFailed(err.response.data.message));
     });
 };
 
 
-export const returnBook = (email,is)=>async(dispatch)=>{
+export const returnBook = (email,id)=>async(dispatch)=>{
     dispatch(borrowSlice.actions.returnBookRequest());
     await axios.put(`http://localhost:4000/api/v1/borrow/return-borrowed-book/${id}`,
         {email},

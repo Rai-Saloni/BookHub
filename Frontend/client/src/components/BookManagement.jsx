@@ -44,7 +44,7 @@ const BookManagement = () => {
       dispatch(resetBookSlice());
       dispatch(resetBorrowSlice());
      }
-  },[dispatch,message,error,loading.borrowSliceError,borrowSliceLoading,borrowSliceMessage]);
+  },[dispatch,message,error,loading,borrowSliceError,borrowSliceLoading,borrowSliceMessage]);
 
   const [searchedKeyword,setSearchedKeyword] = useState("");
   const handleSearch = (e)=>{
@@ -64,7 +64,8 @@ const BookManagement = () => {
     <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4">
        {
         isAuthenticated && user?.role === "Admin" && (
-          <button onClick={()=>dispatch(toggleAddBookPopup())} className="relative pl-14 w-full sm:w-52 flex gap-4 justify-center items-center py-2 px-4 bg-black text-white rounded-md hover:bg-gray-800">
+          <button onClick={()=>dispatch(toggleAddBookPopup())}
+           className="relative pl-14 w-full sm:w-52 flex gap-4 justify-center items-center py-2 px-4 bg-black text-white rounded-md hover:bg-gray-800">
             <span className="bg-white flex justify-center items-center overflow-hidden rounded-full text-black w-[25px] h-[25px] text-[27px] absolute left-5">+</span>
             Add Book
             </button>

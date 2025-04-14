@@ -59,21 +59,26 @@ const AddNewAdmin = () => {
            
         <div className="mb-4">
           <label className="block text-gray-900 font-medium">Name</label>
-          <input type="text" value = {name} onChange={(e)=>setName(e.target.value)} placeholder="Admin's Name" className="w-full px-4 py-2 border border-gray-300 rounded-md"/>
+          <input type="text" value = {name} onChange={(e)=>setName(e.target.value)} 
+          placeholder="Admin's Name" 
+          className="w-full px-4 py-2 border border-gray-300 rounded-md "/>
         </div>
 
         <div className="mb-4">
           <label className="block text-gray-900 font-medium">Email</label>
-          <input type="email" value = {email} onChange={(e)=>setEmail(e.target.value)} placeholder="Admin's Email" className="w-full px-4 py-2 border border-gray-300 rounded-md"/>
+          <input type="email" value = {email} onChange={(e)=>setEmail(e.target.value)} placeholder="Admin's Email"
+           className="w-full px-4 py-2 border border-gray-300 rounded-md"/>
         </div>
 
         <div className="mb-4">
           <label className="block text-gray-900 font-medium">Password</label>
-          <input type="password" value = {password} onChange={(e)=>setPassword(e.target.value)} placeholder="Admin's Password" className="w-full px-4 py-2 border border-gray-300 rounded-md"/>
+          <input type="password" value = {password} onChange={(e)=>setPassword(e.target.value)} placeholder="Admin's Password" 
+          className="w-full px-4 py-2 border border-gray-300 rounded-md"/>
         </div>
          {/* Button */}
          <div className="flex justify-end space-x-4">
-         <button type="button" onClick={()=>dispatch(toggleAddNewAdminPopup())} className="px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300">
+         <button type="button" onClick={()=>dispatch(toggleAddNewAdminPopup())} 
+         className="px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300">
            Close
          </button>
          <button type="submit" 

@@ -39,17 +39,23 @@ const SettingPopup = () => {
           <form onSubmit={handleUpdatePassword}>    
             <div className="mb-4 sm:flex gap-4 items-center">
               <label className="block text-gray-900 font-medium w-full">Enter Current Password</label>
-              <input type="Password" value = {currentPassword} onChange={(e)=>setcurrentPassword(e.target.value)} placeholder="Current Password" className="w-full px-4 py-2 border border-gray-300 rounded-md"/>
+              <input type="Password" value = {currentPassword} 
+              onChange={(e)=>setCurrentPassword(e.target.value)}
+               placeholder="Current Password" className="w-full px-4 py-2 border border-gray-300 rounded-md"/>
             </div>
     
             <div className="mb-4 sm:flex gap-4 items-center">
               <label className="block text-gray-900 font-medium w-full">Enter New Password</label>
-              <input type="password" value = {newPassword} onChange={(e)=>setNewPassword(e.target.value)} placeholder="Enter New Password" className="w-full px-4 py-2 border border-gray-300 rounded-md"/>
+              <input type="password" value = {newPassword} 
+              onChange={(e)=>setNewPassword(e.target.value)}
+               placeholder="Enter New Password" className="w-full px-4 py-2 border border-gray-300 rounded-md"/>
             </div>
     
             <div className="mb-4 sm:flex gap-4 items-center">
               <label className="block text-gray-900 font-medium w-full">Confirm New Password</label>
-              <input type="password" value = {confirmNewPassword} onChange={(e)=>setConfirmNewPassword(e.target.value)} placeholder="Confirm New Password" className="w-full px-4 py-2 border border-gray-300 rounded-md"/>
+              <input type="password" value = {confirmNewPassword} 
+              onChange={(e)=>setConfirmNewPassword(e.target.value)} 
+              placeholder="Confirm New Password" className="w-full px-4 py-2 border border-gray-300 rounded-md"/>
             </div>
              {/* Button */}
              {/* <div className="flex justify-end space-x-4">
@@ -66,7 +72,9 @@ const SettingPopup = () => {
 
              <div className="flex gap-4 mt-10">
 
-             <button type="button" onClick={()=>dispatch(toggleSettingPopup())} className="px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300">
+             <button type="button" 
+             onClick={()=>dispatch(toggleSettingPopup())} 
+             className="px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300">
                Cancel
              </button>
 
